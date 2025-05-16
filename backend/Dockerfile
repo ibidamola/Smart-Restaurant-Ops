@@ -7,6 +7,9 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json for dependencies
 COPY package*.json ./
 
+# Copy the Firebase service account file
+COPY clothingstore-a76eb-firebase-adminsdk-sf291-848c617f1b.json .
+
 # Install dependencies
 RUN npm install 
 
