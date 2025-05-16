@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  backend:
+    image: yourdockerhubusername/restaurant-backend-image1:latest
+    ports:
+      - "6002:6002"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/clothingstore-a76eb-firebase-adminsdk-sf291-848c617f1b.json:/app/clothingstore-a76eb-firebase-adminsdk-sf291-848c617f1b.json
+
+  frontend:
+    image: yourdockerhubusername/restaurant-frontend-image1:latest
+    ports:
+      - "3000:80"
