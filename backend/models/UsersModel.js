@@ -10,7 +10,7 @@ mongoose
   })
   .then(() => {
     console.log(
-      "===============================Connected to Mongodb Successfully !!!============================="
+      "===============================Connected to Mongodb Successfullyadmin users !!!============================="
     );
   })
   .catch((err) => {

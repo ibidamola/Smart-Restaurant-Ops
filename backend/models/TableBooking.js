@@ -10,7 +10,7 @@ mongoose
   })
   .then(() => {
     console.log(
-      "=============================== BOOKING Connected to Mongodb Successfully !!!============================="
+      "=============================== BOOKING Connected to Mongodb Successfully bookings!!!============================="
     );
   })
   .catch((err) => {

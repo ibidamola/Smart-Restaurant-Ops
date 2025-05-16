@@ -12,7 +12,7 @@ mongoose
   })
   .then(() => {
     console.log(
-      "===============================Connected to Mongodb Successfully !!!============================="
+      "===============================Connected to Mongodb Successfully image!!!============================="
     );
   })
   .catch((err) => {
