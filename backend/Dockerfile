@@ -7,8 +7,12 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json for dependencies
 COPY package*.json ./
 
+COPY .env ./
+
 # Copy the Firebase service account file
 COPY clothingstore-a76eb-firebase-adminsdk-sf291-848c617f1b.json .
+
+
 
 # Install dependencies
 RUN npm install 
@@ -19,6 +23,8 @@ COPY . .
 # Expose the port your app will run on (make sure to set GRAPHQL_PORT in your env or default)
 ENV GRAPHQL_PORT=6002
 ENV NODE_ENV=development
+
+
 
 EXPOSE 6002
 
