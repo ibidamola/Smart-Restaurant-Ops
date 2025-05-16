@@ -43,11 +43,15 @@ jobs:
       - name: Install backend dependencies
         working-directory: ./backend
         run: npm ci
+      
+
 
       - name: Recreate Firebase credentials file
         run: |
           echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" | base64 -d > backend/clothingstore-a76eb-firebase-adminsdk-sf291-848c617f1b.json
 
+      - name: Create .env file
+        run: echo "${{ secrets.BACKEND_ENV_FILE }}" > backend/.env
       
         # Log in to Docker Hub
       - name: Log in to Docker Hub
