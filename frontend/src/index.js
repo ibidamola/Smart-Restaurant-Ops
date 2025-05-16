@@ -14,8 +14,11 @@ import {
   gql,
 } from "@apollo/client";
 
+const isDocker = window.location.hostname !== "localhost";
 const client = new ApolloClient({
-  uri: "http://localhost:6002/",
+  uri: isDocker
+  ? "http://host.docker.internal:6002/"
+  : "http://localhost:6002/",
   cache: new InMemoryCache(),
 });
 const root = ReactDOM.createRoot(document.getElementById("root"));
