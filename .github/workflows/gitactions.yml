@@ -1,0 +1,70 @@
+name: Full CI/CD Restaurant Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-dockerize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+    # Frontend steps
+      - name: Setup Node.js for Frontend
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      # Backend steps
+      - name: Setup Node.js for Backend
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install  
+
+      # Build Docker images
+      - name: Build frontend Docker image
+        run: |
+          docker build -t frontend-image1:latest ./frontend
+
+      - name: Build backend Docker image
+        run: |
+          docker build -t backend-image1:latest ./backend  
+
+      # Run containers for testing or other purposes
+      - name: Run frontend container
+        run: docker run -d -p 3000:80 frontend-image1:latest
+      
+      - name: Run backend container
+        run: docker run -d -p 6002:6002 backend-image1:latest  
+
+      # Stop and remove containers to clean up
+      - name: Stop and remove frontend container
+        run: |
+          docker ps -q --filter ancestor=frontend-image1:latest | xargs -r docker stop
+          docker ps -a -q --filter ancestor=frontend-image1:latest | xargs -r docker rm
+
+      - name: Stop and remove backend container
+        run: |
+          docker ps -q --filter ancestor=backend-image1:latest | xargs -r docker stop
+          docker ps -a -q --filter ancestor=backend-image1:latest | xargs -r docker rm
