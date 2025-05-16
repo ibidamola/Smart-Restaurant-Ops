@@ -13,9 +13,9 @@ logs
 Thumbs.db
 
 # Environment files (if you don’t want to copy secrets)
-.env
-.env.local
-.env.*.local
+
+# .env.local
+# .env.*.local
 
 # Git files
 .git
