@@ -1,0 +1,137 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+/*Cart Page Start*/
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.cart-item-content .stars {
+  font-size: 1.5rem;
+  color: var(--red);
+}
+.cart-items {
+  width: 80%;
+  float: left;
+}
+.cart-item {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px 0 0 8px;
+}
+
+.cart-item-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.cart-item-content h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.cart-item-content p {
+  margin: 0 0 15px;
+}
+
+.cart-item-content .item-price {
+  font-weight: bold;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity input {
+  width: 7rem;
+  padding: 5px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.mx-auto button {
+  background-color: #ff3838;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.mx-auto button:hover {
+  background-color: #0f0d2a;
+}
+.mx-auto button i {
+  color: white !important;
+}
+.total-container {
+  width: 20%;
+  float: right;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.total-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.checkout-button {
+  background-color: #ed5656;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+/*Cart Page End*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,33 @@
+# Node modules (will be installed inside the container)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs
+*.log
+*.log.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files (if you don’t want to copy secrets)
+.env
+.env.local
+.env.*.local
+
+# Git files
+.git
+.gitignore
+
+# Docker files
+
+
+# IDE files
+.vscode
+.idea
+
+# Tests and coverage (optional)
+coverage
+tests

@@ -1,0 +1,300 @@
+* {
+  font-family: "balloobhai", cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+:root {
+  --blue: #0f0d2a;
+  --white: #fff;
+  --gray: #332e2e;
+  --black1: #222;
+  --black2: #453f3f;
+}
+
+.pagination {
+  margin-top: 20px;
+  max-height: 47px;
+}
+.view-product{
+  margin-left: 30px;
+}
+.pagination button {
+  padding: 10px 20px;
+  margin-right: 10px;
+ 
+}
+.currentPage {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 0.5rem 0 0;
+}
+.pagination button:disabled {
+ 
+  cursor: not-allowed;
+}
+
+
+/* admin-navigation style start here */
+
+
+.admin-navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--blue);
+  font-weight: 900;
+
+}
+
+
+.admin-navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.admin-navigation ul li:hover {
+  background-color: var(--white);
+}
+
+.admin-navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.admin-navigation ul li:hover a {
+  color: var(--blue);
+}
+
+.admin-navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.admin-navigation ul li a .icon ion-icon {
+  font-size: 1.5rem;
+}
+
+.admin-navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  font-weight: 900;
+  font-size: 20px;
+}
+#tablecards{
+  width: 120%;
+}
+
+/* admin-navigation style end here */
+
+
+/* main style start here */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+
+}
+
+/* Card style start here */
+.dashbox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.dashbox .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.dashbox .card .numbers {
+  position: relative;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--blue);
+}
+
+.dashbox .card .dashboxName {
+  color: var(--black2);
+  font-size: 1.2rem;
+  margin-top: 5px;
+
+}
+
+.dashbox .card .dashboxicon {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+.dashbox .card:hover {
+  background: var(--blue);
+}
+
+.dashbox .card:hover .numbers,
+.dashbox .card:hover .dashboxName,
+.dashbox .card:hover .dashboxicon {
+  color: var(--white);
+}
+
+/* order style start here */
+.details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  /* grid-template-columns: 2fr 1fr; */
+  grid-gap: 30px;
+}
+
+.details .latestOrder {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.details .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.latestOrder.nopage {
+  align-content: center;
+  justify-content: space-evenly;
+}
+.cardHeader h2 {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.details table thead td {
+  font-weight: 900;
+}
+
+.details .latestOrder table tr {
+  color: var(--black1);
+  border-bottom: 2px solid rgba(8, 0, 0, 0.1);
+}
+
+.details .latestOrder table tbody tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.details .latestOrder table tr td {
+  padding: 10px;
+}
+
+/* order style end here */
+
+
+/* view product page style start here */
+.productbox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+.productbox .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.productbox .card .numbers {
+  position: relative;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--blue);
+}
+
+.productbox .card .dashboxName {
+  color: var(--black2);
+  font-size: 1.2rem;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.productbox .card .dashboxicon {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+.productbox .card .dashboxicon img {
+  height: 200px;
+  width: 150px;
+}
+
+.productbox .card:hover {
+  background: var(--blue);
+}
+
+.productbox .card:hover .numbers,
+.productbox .card:hover .dashboxName,
+.productbox .card:hover .dashboxicon {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.productbox .card .dashboxicon img {
+  height: 200px;
+  width: 200px;
+}
+
+.form-label{
+  font-weight: 800;
+}
+
+
+
