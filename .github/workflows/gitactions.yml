@@ -43,30 +43,31 @@ jobs:
       - name: Install backend dependencies
         working-directory: ./backend
         run: npm ci
-
-      # Build Docker images
-      - name: Build frontend Docker image
-        run: |
-          docker build -t frontend-image1:latest ./frontend
-
-      - name: Build backend Docker image
-        run: |
-          docker build -t backend-image1:latest ./backend  
-
-      # Run containers for testing or other purposes
-      - name: Run frontend container
-        run: docker run -d -p 3000:80 frontend-image1:latest
       
-      - name: Run backend container
-        run: docker run -d -p 6002:6002 backend-image1:latest  
+        # Log in to Docker Hub
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      # Stop and remove containers to clean up
-      - name: Stop and remove frontend container
-        run: |
-          docker ps -q --filter ancestor=frontend-image1:latest | xargs -r docker stop
-          docker ps -a -q --filter ancestor=frontend-image1:latest | xargs -r docker rm
 
-      - name: Stop and remove backend container
+      # Build and push Docker images
+      - name: Build and push frontend Docker image
         run: |
-          docker ps -q --filter ancestor=backend-image1:latest | xargs -r docker stop
-          docker ps -a -q --filter ancestor=backend-image1:latest | xargs -r docker rm
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/restaurant-frontend-image1:latest ./frontend
+          docker push ${{ secrets.DOCKER_USERNAME }}/restaurant-frontend-image1:latest
+
+
+      - name: Build and push backend Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/restaurant-backend-image1:latest ./backend  
+          docker push ${{ secrets.DOCKER_USERNAME }}/restaurant-backend-image1:latest
+
+      # Commented out: Stop and remove containers
+      # - name: Stop and remove frontend container
+      #   run: |
+      #     docker ps -q --filter ancestor=${{ secrets.DOCKER_USERNAME }}/restaurant-frontend:latest | xargs -r docker stop
+      #     docker ps -a -q --filter ancestor=${{ secrets.DOCKER_USERNAME }}/restaurant-frontend:latest | xargs -r docker rm
+
+      # - name: Stop and remove backend container
+      #   run: |
+      #     docker ps -q --filter ancestor=${{ secrets.DOCKER_USERNAME }}/restaurant-backend:latest | xargs -r docker stop
+      #     docker ps -a -q --filter ancestor=${{ secrets.DOCKER_USERNAME }}/restaurant-backend:latest | xargs -r docker rm
